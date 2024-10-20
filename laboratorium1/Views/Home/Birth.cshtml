@@ -1,0 +1,28 @@
+﻿@{
+ViewBag.Title = "Birth Form";
+Layout = "_Layout";
+}
+
+<h1>Birth Form</h1>
+
+<form asp-action="Birth" method="post">
+    <div>
+        <label for="name">Имя:</label>
+        <input type="text" name="name" id="name" required />
+    </div>
+    <div>
+        <label for="birthDate">Дата рождения:</label>
+        <input type="date" name="birthDate" id="birthDate" required />
+    </div>
+    <button type="submit">Отправить</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+<p>@ViewBag.Message</p>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+<p style="color:red;">@ViewBag.ErrorMessage</p>
+}
