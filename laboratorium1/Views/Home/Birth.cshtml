@@ -7,14 +7,14 @@ Layout = "_Layout";
 
 <form asp-action="Birth" method="post">
     <div>
-        <label for="name">Имя:</label>
+        <label for="name">Imie:</label>
         <input type="text" name="name" id="name" required />
     </div>
     <div>
-        <label for="birthDate">Дата рождения:</label>
+        <label for="birthDate">Data urodzenia:</label>
         <input type="date" name="birthDate" id="birthDate" required />
     </div>
-    <button type="submit">Отправить</button>
+    <button type="submit">Oblicz</button>
 </form>
 
 @if (ViewBag.Message != null)
@@ -24,5 +24,5 @@ Layout = "_Layout";
 
 @if (ViewBag.ErrorMessage != null)
 {
-<p style="color:red;">@ViewBag.ErrorMessage</p>
+<p style="color:#ff0000;">@ViewBag.ErrorMessage</p>
 }

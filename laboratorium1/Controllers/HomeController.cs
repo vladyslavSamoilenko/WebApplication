@@ -90,11 +90,10 @@ public class HomeController : Controller
     {
         if (string.IsNullOrEmpty(name) || birthDate == null || birthDate >= DateTime.Now)
         {
-            ViewBag.ErrorMessage = "Неверные данные. Убедитесь, что имя заполнено и дата рождения меньше текущей.";
+            ViewBag.ErrorMessage = "Sprawdz czy wpisales poprawnie dane";
             return View();
         }
-
-        // Рассчитываем возраст
+        
         var today = DateTime.Today;
         var age = today.Year - birthDate.Value.Year;
 
@@ -109,6 +108,8 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
+    
 }
 
 public enum Operator
