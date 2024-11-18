@@ -15,20 +15,25 @@
         <th>Email</th>
         <th>Numer telefonu</th>
         <th>Data urodzenia</th>
-        <th>Akcja</th>
+        <th>Kategoria</th>
+        <th style="text-align: right;">Akcja</th>
     </tr>
     </thead>
     <tbody>
     @foreach (var contact in Model)
     {
-    <tr>
-        <td>@contact.FirstName</td>
-        <td>@contact.LastName</td>
-        <td>@contact.Email</td>
-        <td>@contact.PhoneNumber</td>
-        <td>@contact.DateBirt.ToShortDateString()</td>
-        <td>@contact.Category</td>
-    </tr>
+        <tr>
+            <td>@contact.FirstName</td>
+            <td>@contact.LastName</td>
+            <td>@contact.Email</td>
+            <td>@contact.PhoneNumber</td>
+            <td>@contact.DateBirt.ToShortDateString()</td>
+            <td>@contact.Category</td>
+            <td style="text-align: right;">
+                <a asp-action="Edit" asp-route-id="@contact.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                <a asp-action="Delete" asp-route-id="@contact.Id" class="btn btn-danger btn-sm">Usuń</a>
+            </td>
+        </tr>
     }
     </tbody>
 </table>
