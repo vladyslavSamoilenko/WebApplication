@@ -1,0 +1,34 @@
+﻿@model List<ContactModel>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Kontakty</h2>
+<a class="btn btn-primary" asp-action="Create" asp-controller="Contact">Dodaj kontakt</a>
+<h4>Lista Kontaktow</h4>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Email</th>
+        <th>Numer telefonu</th>
+        <th>Data urodzenia</th>
+        <th>Akcja</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var contact in Model)
+    {
+    <tr>
+        <td>@contact.FirstName</td>
+        <td>@contact.LastName</td>
+        <td>@contact.Email</td>
+        <td>@contact.PhoneNumber</td>
+        <td>@contact.DateBirt.ToShortDateString()</td>
+        <td>@contact.Category</td>
+    </tr>
+    }
+    </tbody>
+</table>
