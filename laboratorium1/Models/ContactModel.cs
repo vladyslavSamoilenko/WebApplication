@@ -8,27 +8,27 @@ public class ContactModel
     [HiddenInput]
     public int Id { get; set; }
     
-    [Required(ErrorMessage = "Поле Имя обязательно для заполнения.")]
-    [MaxLength(20, ErrorMessage = "Имя не может быть длиннее 20 символов.")]
-    [MinLength(2, ErrorMessage = "Имя должно быть не короче 2 символов.")]
+    [Required(ErrorMessage = "Imie jest obowiązkowe")]
+    [MaxLength(20, ErrorMessage = "Imie nie może przekrocic 20 znakow")]
+    [MinLength(2, ErrorMessage = "Imie musi być dłuższe od 2 symboli")]
     public string FirstName { get; set; }
 
-    [Required(ErrorMessage = "Поле Фамилия обязательно для заполнения.")]
-    [MaxLength(50, ErrorMessage = "Фамилия не может быть длиннее 50 символов.")]
-    [MinLength(2, ErrorMessage = "Фамилия должна быть не короче 2 символов.")]
+    [Required(ErrorMessage = "Nazwisko jest obowiązkowe")]
+    [MaxLength(50, ErrorMessage = "Nazwisko nie może przekrocic 50 znakow.")]
+    [MinLength(2, ErrorMessage = "Nazwisko musi być dłuższe od 2 symboli")]
     public string LastName { get; set; }
 
-    [EmailAddress(ErrorMessage = "Некорректный формат Email.")]
+    [EmailAddress(ErrorMessage = "Niepoprawny adres amilowy")]
     public string Email { get; set; }
 
-    [DataType(DataType.Date, ErrorMessage = "Некорректный формат даты.")]
+    [DataType(DataType.Date, ErrorMessage = "Niepoprawny format daty")]
     public DateOnly DateBirt { get; set; }
 
-    [Phone(ErrorMessage = "Некорректный формат номера телефона.")]
+    [Phone(ErrorMessage = "Niepoprawny numer telefonu")]
     public string PhoneNumber { get; set; }
 
-    [Required(ErrorMessage = "Выберите категорию.")]
-    [Display(Name = "Категория")]
+    [Required(ErrorMessage = "Wybierz kategorie")]
+    [Display(Name = "Kategoria")]
     public Category Category { get; set; }
 
 }
