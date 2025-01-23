@@ -1,4 +1,4 @@
-namespace laboratorium1.Models;
+namespace ASP_projekt.Models;
 
 public class ErrorViewModel
 {

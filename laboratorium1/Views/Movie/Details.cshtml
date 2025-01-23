@@ -1,0 +1,133 @@
+@model ASP_projekt.Models.Movies.Movie
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Budget)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Homepage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Homepage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Overview)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Overview)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Popularity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Popularity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Revenue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Revenue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Runtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Runtime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MovieStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tagline)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tagline)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VoteAverage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VoteAverage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VoteCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VoteCount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <h4>Movie Cast</h4>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#movieCastAccordion" aria-expanded="false" aria-controls="movieCastAccordion">
+        Show Cast
+    </button>
+    <div class="collapse mt-3" id="movieCastAccordion">
+        <div class="card card-body">
+            @if (Model.MovieCasts?.Any() == true)
+            {
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Character Name</th>
+                    <th>Person Name</th>
+                    <th>Cast Order</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var cast in Model.MovieCasts.OrderBy(c => c.CastOrder))
+                {
+                <tr>
+                    <td>@(string.IsNullOrEmpty(cast.CharacterName) ? "N/A" : cast.CharacterName)</td>
+                    <td>@(cast.Person?.PersonName ?? "N/A")</td>
+                    <td>@(cast.CastOrder.HasValue ? cast.CastOrder.Value.ToString() : "N/A")</td>
+                </tr>
+                }
+                </tbody>
+            </table>
+            }
+            else
+            {
+            <p>No cast information available for this movie.</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="AddToCast" asp-route-movieId="@Model.MovieId">Add to Cast</a>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.MovieId" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+

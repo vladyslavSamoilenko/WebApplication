@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C#Prods\\laboratorium1\\laboratorium1\\laboratorium1.csproj": {}
+    "E:\\C#Prods\\WebApplication\\laboratorium1\\laboratorium1.csproj": {}
   },
   "projects": {
-    "E:\\C#Prods\\laboratorium1\\laboratorium1\\laboratorium1.csproj": {
+    "E:\\C#Prods\\WebApplication\\laboratorium1\\laboratorium1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C#Prods\\laboratorium1\\laboratorium1\\laboratorium1.csproj",
+        "projectUniqueName": "E:\\C#Prods\\WebApplication\\laboratorium1\\laboratorium1.csproj",
         "projectName": "laboratorium1",
-        "projectPath": "E:\\C#Prods\\laboratorium1\\laboratorium1\\laboratorium1.csproj",
+        "projectPath": "E:\\C#Prods\\WebApplication\\laboratorium1\\laboratorium1.csproj",
         "packagesPath": "C:\\Users\\dusha\\.nuget\\packages\\",
-        "outputPath": "E:\\C#Prods\\laboratorium1\\laboratorium1\\obj\\",
+        "outputPath": "E:\\C#Prods\\WebApplication\\laboratorium1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dusha\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -49,17 +49,31 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
