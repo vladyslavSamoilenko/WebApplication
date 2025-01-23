@@ -1,0 +1,92 @@
+@model ASP_projekt.Utilities.PagingListAsync<ASP_projekt.Models.Movies.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    CancellationToken token = CancellationToken.None;
+}
+
+<h1>Zadanie 1</h1>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.GetAsyncEnumerator(token).Current.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.GetAsyncEnumerator(token).Current.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.GetAsyncEnumerator(token).Current.Homepage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data.GetAsyncEnumerator(token).Current.ReleaseDate)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @await foreach(var item in Model.Data) {
+        <tr>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Title))
+                {
+                    @Html.ActionLink(item.Title, "Details", "Movie", new { id = item.MovieId }, null)
+                }
+                else
+                {
+                    <span>brak</span>
+                }
+            </td>
+            <td>
+                @if(item.Budget.HasValue && item.Budget > 0){
+                    @Html.DisplayFor(modelItem => item.Budget)
+                }else{
+                    <span>brak</span>
+                }
+            </td>
+            <td>
+                @if(!string.IsNullOrEmpty(item.Homepage)){
+                @Html.DisplayFor(modelItem => item.Homepage)
+                }
+                else {
+                    <span>brak</span>
+                }
+            </td>
+            <td>
+                @if (item.ReleaseDate.HasValue) {
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                }
+                else
+                {
+                    <span>brak</span>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<nav>
+    <ul class="pagination">
+        @if (Model.IsPrevious)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.Page - 1)" asp-route-size="@Model.Size">Previous</a>
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link">@Model.Page</a>
+        </li>
+        
+
+        @if (Model.IsNext)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Model.Page + 1)" asp-route-size="@Model.Size">Next</a>
+            </li>
+        }
+    </ul>
+</nav>

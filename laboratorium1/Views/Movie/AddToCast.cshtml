@@ -1,0 +1,45 @@
+﻿@model ASP_projekt.Models.Movies.MovieCast
+@using ASP_projekt.Models.Movies
+@{
+    ViewData["Title"] = "Add Cast Member";
+}
+
+<h1>Add Cast Member</h1>
+
+<form asp-action="AddToCast" method="post">
+    <input type="hidden" name="movieId" value="@ViewBag.MovieId" />
+
+    <div class="form-group">
+        <label for="CharacterName">Character Name</label>
+        <input type="text" name="characterName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="personName">Actor Name</label>
+        <input type="text" name="personName" class="form-control" list="actors" placeholder="Provide actor's name" />
+        <datalist id="actors">
+            @foreach (var person in ViewBag.Actors as List<Person>)
+            {
+            <option value="@person.PersonName">@person.PersonName</option>
+            }
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <label for="GenderId">Gender</label>
+        <select name="genderId" class="form-control">
+            @foreach (var gender in (IEnumerable<ASP_projekt.Models.Movies.Gender>)ViewBag.Genders)
+            {
+                <option value="@gender.GenderId">@gender.Gender1</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="CastOrder">Cast Order</label>
+        <input type="number" name="castOrder" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Member</button>
+    <a asp-action="Details" asp-route-id="@ViewBag.MovieId" class="btn btn-secondary">Cancel</a>
+</form>

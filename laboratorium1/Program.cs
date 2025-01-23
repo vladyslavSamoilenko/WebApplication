@@ -1,8 +1,14 @@
+using ASP_projekt.Models.Movies;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<MoviesContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["MoviesDatabase:ConnectionString"]);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,8 +21,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Movie}/{action=Index}/{id?}"); 
 
 app.UseAuthorization();
 
