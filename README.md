@@ -13,4 +13,5 @@ Baza Movies. Wykonaj poniże funkcje aplikacji:
 - person_name
 - gender
 - cast_order
+
 Po dodaniu postaci powinna ona być uwzględniona w widoku z punktu 2.
